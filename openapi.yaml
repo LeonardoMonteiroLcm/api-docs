@@ -110,12 +110,15 @@ components:
       properties:
         id:
           type: integer
-        name:
+        fullname:
+          type: string
+        shortname:
           type: string
         email:
           type: string
       example:
         id: 1
-        name: "Acme S.A."
-        email: "contact@acme.com"
+        fullname: "Microsoft Corporation Inc"
+        shortname: "Microsoft"
+        email: "contact@microsoft.com"
     
