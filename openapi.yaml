@@ -1,0 +1,60 @@
+openapi: 3.0.0
+info:
+  title: C2W API
+  description: API para gerenciar usuários e documentos da C2W.
+  version: 1.0.0
+servers:
+  - url: https://api.c2w.com/v1
+    description: Servidor de Produção
+  - url: https://sandbox.api.c2w.com/v1
+    description: Servidor de Testes
+
+paths:
+  /users:
+    get:
+      summary: Retorna a lista de usuários
+      description: Obtém todos os usuários cadastrados no sistema.
+      responses:
+        '200':
+          description: Lista de usuários retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+
+  /users/{id}:
+    get:
+      summary: Retorna um usuário pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Usuário encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        '404':
+          description: Usuário não encontrado
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+      example:
+        id: 1
+        name: "João Silva"
+        email: "joao@c2w.com"
