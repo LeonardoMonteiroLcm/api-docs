@@ -9,9 +9,15 @@ servers:
   - url: https://apicnc-dev.code2work.com/v1
     description: Servidor de Testes
 
+tags:
+  - name: Users
+    description: Endpoints relacionados à gestão de usuários.
+
 paths:
   /users:
     get:
+      tags:
+        - Users
       summary: Retorna a lista de usuários
       description: Obtém todos os usuários cadastrados no sistema.
       responses:
@@ -26,6 +32,8 @@ paths:
 
   /users/{id}:
     get:
+      tags:
+        - Users
       summary: Retorna um usuário pelo ID
       parameters:
         - name: id
