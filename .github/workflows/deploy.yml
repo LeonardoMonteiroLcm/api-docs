@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você está usando
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v2
+        with:
+          branch: gh-pages  # A branch onde o conteúdo será publicado
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # A branch de destino do GitHub Pages
+          folder: .  # Diretório com os arquivos a serem publicados (como `_site` ou o diretório do seu site estático)
+          
+      - name: Commit and Push Changes
+        run: |
+          git add -A
+          git commit -m "Deploy to GitHub Pages"
+          git push origin gh-pages
