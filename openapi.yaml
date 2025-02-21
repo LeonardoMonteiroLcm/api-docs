@@ -4,9 +4,9 @@ info:
   description: API para gerenciar usuários e documentos.
   version: 1.0.0
 servers:
-  - url: https://api.c2w.com/v1
+  - url: https://apicnc.code2work.com/v1
     description: Servidor de Produção
-  - url: https://api-dev.c2w.com/v1
+  - url: https://apicnc-dev.code2work.com/v1
     description: Servidor de Testes
 
 paths:
