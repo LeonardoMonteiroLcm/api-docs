@@ -5,9 +5,13 @@ info:
   version: 1.0.0
 servers:
   - url: https://apicnc.code2work.com/v1
-    description: Servidor de Produção
+    description: Servidor de Produção (https)
+  - url: http://apicnc.code2work.com/v1
+    description: Servidor de Produção (http)
   - url: https://apicnc-dev.code2work.com/v1
-    description: Servidor de Testes
+    description: Servidor de Testes (https)
+  - url: http://apicnc-dev.code2work.com/v1
+    description: Servidor de Testes (http)
 
 tags:
   - name: Users
