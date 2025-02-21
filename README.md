@@ -1,1 +1,1 @@
-# c2w-api-docs
+# docs
