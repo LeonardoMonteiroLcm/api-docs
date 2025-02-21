@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
-  title: C2W API
-  description: API para gerenciar usuários e documentos da C2W.
+  title: API
+  description: API para gerenciar usuários e documentos.
   version: 1.0.0
 servers:
   - url: https://api.c2w.com/v1
     description: Servidor de Produção
-  - url: https://sandbox.api.c2w.com/v1
+  - url: https://api-dev.c2w.com/v1
     description: Servidor de Testes
 
 paths:
