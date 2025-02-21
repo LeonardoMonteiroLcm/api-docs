@@ -12,6 +12,8 @@ servers:
 tags:
   - name: Users
     description: Endpoints relacionados à gestão de usuários.
+  - name: Clients
+    description: Endpoints relacionados à gestão de clientes.
 
 paths:
   /users:
@@ -51,6 +53,43 @@ paths:
         '404':
           description: Usuário não encontrado
 
+  /clients:
+    get:
+      tags:
+        - Clients
+      summary: Retorna a lista de clientes
+      description: Obtém todos os clientes cadastrados no sistema.
+      responses:
+        '200':
+          description: Lista de clientes retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+
+  /clients/{id}:
+    get:
+      tags:
+        - Clients
+      summary: Retorna um cliente pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cliente encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+        '404':
+          description: Cliente não encontrado
+
 components:
   schemas:
     User:
@@ -66,3 +105,17 @@ components:
         id: 1
         name: "João Silva"
         email: "joao@c2w.com"
+    Client:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+      example:
+        id: 1
+        name: "Acme S.A."
+        email: "contact@acme.com"
+    
